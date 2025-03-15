@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>Martin COMP10004 Project</title>
+	
+	
+	<link rel="MB icon" type "image/jpg" href="mbfavicon.jfif"/>
+	<link rel="stylesheet" href="styles.css">
+	
+	
+	
+
+</head>
+
+<body class="highlight" onload="onLoadFunction()">
+
+
+
+<header>
+		<h1 id="main-title">Extreme Noughts and Crosses</h1>
+	
+		<!-- <h2 id="h2-title">Noughts and Crosses on a larger scale</h2> --->
+		
+	
+		<div class="menu-style">
+		<table>
+			<colgroup>
+				<col class="columnsworth" />
+				<col class="columnsworth" />
+				<col class="columnsworth" />
+				<col class="columnsworth" />
+				<col class="columnsworth" />
+			</colgroup>
+			<tr>
+			<!--- Use this for the button images img src="starbutton.png" ----->  
+				<th><button class="btn" onclick="PlayAgainstPerson()">New Game v Person</button></th>
+				<th><button class="btn" onclick="PlayAgainstComputer()">New Game v Computer</button></th>
+				<th><button class="btn" onclick="SaveGame()">Save Game</button></th>
+				<th><button class="btn" onclick="loadGame()">Load Game</button></th>
+				<!--<th><button class="btn" onclick="settings()">Settings</button></th>  -->
+				<th><button class="btn2" onclick="levelDown()">-</button>
+				    <button class="btn" id="levelText">Level</button>
+				    <button class="btn2" onclick="levelUp()">+</button></th>
+				<th><button class="btn"><a href="https://en.wikipedia.org/wiki/Tic-tac-toe" target="_blank" text-decoration:"none">WIKI</a></button></th>
+				
+			</tr>
+			<tr>
+				<th></th>
+		<!--		<th><span id="player1ScoreText"></span></th> -->
+		<!----		<th><h3><span id="scorelegend"</h3></th>    --->
+			<!--	<th><h1>Player 1 SCORE Player 2</h1></th>  -->
+			
+				
+		<!--		<th><span id="player2ScoreText"></span></th> --->
+				<th></th>
+			</tr>
+		</table>
+		<div>
+	</header>
+		 
+		 <!----<div id="board">  <P>text</P>  </div>    --->
+	 	
+		<!----- <button id="toggleButton">Show/Hide Board</button>   ---->
+		
+	<!-- <button id="themeToggle">Toggle Light/Dark Mode</button>  --->
+	
+	
+	<!-- Outer table  --->
+	<table>
+		<tr>
+			<th width="15%" text-align=center></th>	<!-- Player 1 score column -->
+			<th width="70%" text-align=center></th>    <!-- Grid column           -->
+			<th width="15%" text-align=center></th>    <!-- Player 2 score column -->
+		</tr>
+		<tr>
+			<td><h2><span id="player1name"></span></h2><br>
+			<h1><span id="player1ScoreText"></span></h1>
+			<br><br><h3><span id="userMessageText1"</span></h3>
+			
+			</td>
+			<td>
+	
+	<!--   Main Board section   -->
+		<table class="big_table">
+	        <tr>
+		    <td>
+				<table class="little_table">
+                    <tr>
+						<td><img id="image1-1-1-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-1-1-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-1-1-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                        
+                    </tr>
+                    <tr>
+						<td><img id="image1-1-2-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-1-2-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-1-2-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+					<tr>
+						<td><img id="image1-1-3-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-1-3-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-1-3-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+						
+                        
+                    </tr>
+                </table>
+            </td>
+			
+             <td>
+				<table class="little_table">
+					<tr>
+						<td><img id="image1-2-1-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-2-1-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-2-1-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                        
+                    </tr>
+                    <tr>
+						<td><img id="image1-2-2-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-2-2-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-2-2-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+					<tr>
+						<td><img id="image1-2-3-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-2-3-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-2-3-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+					
+               </table>
+            </td>
+            <td>
+        		<table class="little_table">
+					<tr>
+						<td><img id="image1-3-1-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-3-1-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-3-1-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                        
+                    </tr>
+                    <tr>
+						<td><img id="image1-3-2-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-3-2-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-3-2-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+					<tr>
+						<td><img id="image1-3-3-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-3-3-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image1-3-3-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+					
+				</table>
+            </td>
+	
+        </tr>
+		
+		<tr>
+			<td>
+				<table class="little_table">
+                    <tr>
+						<td><img id="image2-1-1-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-1-1-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-1-1-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+                    <tr>
+						<td><img id="image2-1-2-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-1-2-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-1-2-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+					<tr>
+						<td><img id="image2-1-3-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-1-3-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-1-3-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+                </table>
+            </td>
+			
+            <td>
+				<table class="little_table">
+					<tr>
+						<td><img id="image2-2-1-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-2-1-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-2-1-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                        
+                    </tr>
+                    <tr>
+						<td><img id="image2-2-2-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-2-2-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-2-2-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+					<tr>
+						<td><img id="image2-2-3-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-2-3-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-2-3-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+               </table>
+            </td>
+            <td>
+        		<table class="little_table">
+					<tr>
+						<td><img id="image2-3-1-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-3-1-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-3-1-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+                    <tr>
+						<td><img id="image2-3-2-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-3-2-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-3-2-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+					<tr>
+						<td><img id="image2-3-3-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-3-3-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image2-3-3-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+					
+				</table>
+            </td>
+        </tr>
+		
+		
+		<tr>
+		
+			<td>
+				<table class="little_table">
+                    <tr>
+						<td><img id="image3-1-1-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-1-1-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-1-1-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                        
+                    </tr>
+                    <tr>
+						<td><img id="image3-1-2-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-1-2-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-1-2-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+					<tr>
+						<td><img id="image3-1-3-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-1-3-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-1-3-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+                </table>
+            </td>
+			
+             <td>
+				<table class="little_table">
+					<tr>
+						<td><img id="image3-2-1-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-2-1-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-2-1-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                        
+                    </tr>
+                    <tr>
+						<td><img id="image3-2-2-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-2-2-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-2-2-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+					<tr>
+						<td><img id="image3-2-3-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-2-3-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-2-3-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+               </table>
+            </td>
+            <td>
+        		<table class="little_table">
+					<tr>
+						<td><img id="image3-3-1-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-3-1-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-3-1-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                     </tr>
+                    <tr>
+						<td><img id="image3-3-2-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-3-2-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-3-2-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+					<tr>
+						<td><img id="image3-3-3-1" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-3-3-2" src="empty-cell.png" onclick="processclick(event)"/></td>
+						<td><img id="image3-3-3-3" src="empty-cell.png" onclick="processclick(event)"/></td>
+                    </tr>
+				</table>
+            </td>
+			
+		
+		</tr>
+		<!--- </div> -->
+		
+		
+    </table>
+	<!-- </div>  -->
+
+			</td>
+			<td><h2><span id="player2name"></span></h2><br>
+				<h1><span id="player2ScoreText"></span></h1>
+				<br><br><h3><span id="userMessageText2"</span></h3>
+			</td>
+		</tr>		
+		
+	</table>		
+
+<p>
+<div id="turn-title"><img id="player_turn" src="O-clear.png"> Player's Turn </img></div>
+</p>
+
+
+<!--  End of Main Board section   -->
+
+
+
+<script src="script.js"></script>
+	
+	
+</body>
+
+	<footer>
+	
+		<!-- <div class="menu-style">
+		<table>
+			<tr>
+				<th>&nbsp</th>
+				<th><button class="btn">Quit</button></th>
+				<th><button class="btn">Reset Game</button></th>
+				<th><button class="btn">Help</button></th>
+				<th>&nbsp</th>
+			</tr>
+		</table>
+		
+		</div> --->
+	</footer>
+	
+	
+
+
+</html>
