@@ -10,17 +10,20 @@
  /* Grouping Selector */
 	h1, p, a {
 	text-align: center;
+	font-family: Helvetica;
 	}
 	
  /* Element Selector */
 	h1 {
 	font-size: 2.5em;
 	text-align: center;
+	font-family: Helvetica;
 	}
 	
 	h2 {
 	font-size: 2.0em;
 	text-align: center;
+	font-family: Helvetica;
 	}
 	
 	
@@ -33,10 +36,12 @@
 	.menu-style{
 	<!--background-color: #d0e0ff; -->
 	padding: 10px;
+	font-family: Helvetica;
 	
 	}
 	.btn {
 		    padding: 5px 5px;
+			font-family: Helvetica;
             font-size: 14px;
             border-radius: 8px;
             border: 3px solid black;
@@ -49,6 +54,7 @@
 	
 	.btn2 {
 		    padding: 4px 4px;
+			font-family: Helvetica;
             font-size: 18px;
             border-radius: 8px;
             border: 3px solid black;
@@ -63,21 +69,23 @@
 	#main-title {
 		min-width:500px;
 		max-width:800px;
-	font-family: "Helvetica";
+	font-family: Helvetica;
+	
 	text-align: center;
+	
 	}
 	
     #h2-title {
 		min-width:500px;
 		max-width:800px;
-	font-family: "Helvetica";
+	font-family: Helvetica;
 	text-align: center;
 	}
 	#turn-title {
 		min-width:500px;
 		max-width:800px;
-	font-family: "Helvetica";
-	text-align: center;
+		font-family: Helvetica;
+		text-align: center;
 	}
 
 
@@ -85,6 +93,7 @@
 	table {
 		width: 100%;
 		max-width:800px;
+		font-family: Helvetica;
 		/* table-layout: fixed; */
 		}
 	.columnsworth {
@@ -105,6 +114,7 @@ body {
  /* Light mode (default) */
  background-color: white;
  color: black;
+ font-family: Helvetica;
  }
  
 /*   button {
@@ -117,10 +127,12 @@ body {
  body.dark-mode {
  background-color: #333;
  color: white;
+ font-family: Helvetica;
  }
  body.dark-mode button {
  background-color: #555;
  color: white;
+ font-family: Helvetica;
 }
 
 
@@ -128,6 +140,7 @@ body {
 
    .little_table td {
     border: 1px black solid;
+	font-family: Helvetica;
 	/*width: 100%;
 	height: 100%;
 	min-width: 30px;
@@ -149,12 +162,14 @@ body {
 	max-width: 495px;
     height: auto;
 	layout: fixed;
+	font-family: Helvetica;
 		}
 		
 	.big_table img{
 	max-width: 100%;
 	max-height:100%;
 	display: block;
+	font-family: Helvetica;
 	}
 
 	.little_table {
@@ -165,6 +180,7 @@ body {
 	/* max-width: 100px; */
     height: 100%; 
 	/* layout: fixed; */
+	font-family: Helvetica;
 		}
 		
 

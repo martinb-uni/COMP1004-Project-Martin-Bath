@@ -13,12 +13,19 @@ let winner = "";
 let computerSelected="";
 
 
+let startTime = new Date();
+let endTime = new Date();
+let timeElapsed = endTime - startTime;
+
+
 /* -------------------------------------------------------------------------------*/
 
  function onLoadFunction(){
 
        
 	winner="";
+	
+	let startTime = new Date();
 		
 	opponent = "player"; 
 
@@ -105,6 +112,8 @@ function levelDown(){
 	svplayer2name = "";
 	svsavedOpponent = "";
 	svsavedLevel = 0;
+	endTime = new Date();
+	svsavedTime = endTime - startTime;
 	
 		
 	let mbExtremeNoughts = {svplayer1ScoreText,
@@ -112,7 +121,8 @@ function levelDown(){
 					   svplayer1name,
 					   svplayer2name,
 					   svsavedOpponent,
-					   svsavedLevel
+					   svsavedLevel,
+					   svsavedTime
 					   };
 
 
@@ -124,6 +134,7 @@ function levelDown(){
 	
 	mbExtremeNoughts.svsavedOpponent = opponent;	  
 	mbExtremeNoughts.svsavedLevel = level;	
+	mbExtremeNoughts.svsavedTime = endTime - startTime;
 	  
 	
 	localStorage.setItem("mbExtremeNoughts", JSON.stringify(mbExtremeNoughts));
@@ -169,13 +180,16 @@ function clearMessageTexts(textMsg)
 	svplayer2name="";
 	svsavedOpponent = "";
 	svsavedLevel = 0;
+	svsavedTime = 0;
+	
 		
 	let mbExtremeNoughtsLd = {svplayer1ScoreText,
 					   svplayer2ScoreText,
 					   svplayer1name,
 					   svplayer2name,
 					   svsavedOpponent,
-					   svsavedLevel
+					   svsavedLevel,
+					   svsavedTime
 					   };
 				   
 	 mbExtremeNoughtsLd = JSON.parse(localStorage.getItem("mbExtremeNoughts"));
@@ -189,6 +203,9 @@ function clearMessageTexts(textMsg)
 	opponent = mbExtremeNoughtsLd.svsavedOpponent;
 	level  = mbExtremeNoughtsLd.svsavedLevel;
 	document.getElementById("levelText").innerHTML = ("Level" + (mbExtremeNoughtsLd.svsavedLevel));
+	
+	/* Set start time back to allow for retrieved game time */
+	startTime = new Date() - mbExtremeNoughtsLd.svsavedTime;
 	
 	/* Set the opponent to reflect the one from the saved game  */
 	if (opponent == "computer")  PlayAgainstComputer();
